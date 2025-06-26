@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manogna Venkata Sudha Anirudh Maganti - AI/ML Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1d29 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: #00d4ff;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1d29 50%, #0f1419 100%);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00d4ff, #ffffff, #00ff88);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00d4ff, #00ff88);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00d4ff;
+            border: 2px solid #00d4ff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #00d4ff;
+        }
+
+        .section h3.subheading {
+            font-size: 1.8rem;
+            color: #00ff88;
+            margin: 2rem 0 1.5rem;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-content {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-highlight {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid, .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increased from 350px */
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card, .repo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover, .repo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .project-card h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+            font-size: 1.1rem; /* Reduced from 1.2rem */
+            white-space: normal;
+            overflow-wrap: break-word;
+            word-break: break-all; /* Fallback for long words */
+            max-width: 100%;
+            max-height: 3.3em; /* Approx 3 lines */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Limit to 2 lines */
+            -webkit-box-orient: vertical;
+        }
+
+        .repo-card h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-card p, .repo-card p {
+            margin-bottom: 1rem;
+            color: #cccccc;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .repo-card .language {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: linear-gradient(to bottom, #00d4ff, #00ff88);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+
+        .experience-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: #00d4ff;
+            border: 3px solid #0f1419;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .experience-left {
+            left: 0;
+        }
+
+        .experience-right {
+            left: 50%;
+        }
+
+        .experience-right::after {
+            left: -10px;
+        }
+
+        .experience-content {
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            position: relative;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .experience-content h3 {
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+
+        .experience-content h4 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .experience-content .date {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-content p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.15), rgba(0, 255, 136, 0.15));
+            color: #ffffff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.25), rgba(0, 255, 136, 0.25));
+            transform: scale(1.05);
+        }
+
+        /* Resume Section */
+        .resume-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .resume-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Mobile Responsive for Timeline */
+        @media screen and (max-width: 768px) {
+            .experience-timeline::after {
+                left: 31px;
+            }
+            
+            .experience-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .experience-item::after {
+                left: 21px;
+            }
+            
+            .experience-right {
+                left: 0%;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #00ff88;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 20, 25, 0.98);
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .projects-grid, .repos-grid, .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AM</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">☰</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Manogna Venkata Sudha Anirudh Maganti</h1>
+            <h2>AI/ML Engineer | Building Data-Driven Solutions</h2>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>I’m an <span class="about-highlight">AI/ML Engineer</span> with extensive experience delivering data-driven solutions in e-commerce, automotive, and finance. Specializing in <span class="about-highlight">scalable ML pipelines</span> on AWS and GCP, I deploy <span class="about-highlight">NLP models</span> and <span class="about-highlight">recommendation systems</span> to drive business impact.</p>
+            <br>
+            <p>My work enhances decision-making and operational efficiency through <span class="about-highlight">predictive modeling</span>, <span class="about-highlight">clustering</span>, and <span class="about-highlight">business intelligence</span>. I’m eager to leverage my expertise to innovate in dynamic environments.</p>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="section">
+        <h2>Featured Projects</h2>
+        <h3 class="subheading">Highlighted Work</h3>
+        <!--
+            IMPORTANT: Replace the placeholder URLs below with the actual GitHub repository URLs from https://github.com/magantianirudh.
+            Example: For Credit Card Clustering, use https://github.com/magantianirudh/[actual-repo-name].
+            If a repo is private, replace the link with <p>Contact for details</p> or make the repo public.
+            If no GitHub repo exists for a project, remove it from this section.
+        -->
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Credit Card Clustering Segmentation</h3>
+                <p>Developed a clustering-based segmentation model to categorize credit card users based on transaction patterns, enabling targeted marketing strategies.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">K-Means</span>
+                    <span class="tech-tag">Pandas</span>
+                </div>
+                <a href="https://github.com/magantianirudh/credit-card-clustering" class="project-link" target="_blank">View on GitHub →</a>
+            </div>
+            <div class="project-card">
+                <h3>Metaphor Detection using Natural Language Processing</h3>
+                <p>Built an NLP model to identify metaphorical expressions in text, enhancing semantic analysis for sentiment and intent detection.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">NLTK</span>
+                    <span class="tech-tag">SpaCy</span>
+                    <span class="tech-tag">BERT</span>
+                </div>
+                <a href="https://github.com/magantianirudh/Metaphor-Detection-using-NLP" class="project-link" target="_blank">View on GitHub →</a>
+            </div>
+            <div class="project-card">
+                <h3>Crop Row Detection Using Deep Learning U-Net</h3>
+                <p>Implemented a U-Net-based deep learning model for crop row detection in UAV imagery, supporting autonomous agricultural navigation.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">U-Net</span>
+                    <span class="tech-tag">OpenCV</span>
+                </div>
+                <a href="https://github.com/magantianirudh/Crop_Row_Detection_Using_DeepLearning_Unet" class="project-link" target="_blank">View on GitHub →</a>
+            </div>
+            <div class="project-card">
+                <h3>Bayesian Inference Model</h3>
+                <p>Designed a Bayesian model for probabilistic inference, applied to predictive analytics in financial risk assessment.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PyMC3</span>
+                    <span class="tech-tag">NumPy</span>
+                    <span class="tech-tag">Matplotlib</span>
+                </div>
+                <a href="https://github.com/magantianirudh/Bayesian" class="project-link" target="_blank">View on GitHub →</a>
+            </div>
+        </div>
+        <h3 class="subheading">Other Projects</h3>
+        <div class="repos-grid" id="repos-container">
+            <!-- Public repositories will be populated by JavaScript, including Credit Card Financial Dashboard, HR Analytics Tableau, Sales Dashboard Power BI, and HR Attrition Dashboard Power BI if public -->
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2>Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item experience-left">
+                <div class="experience-content">
+                    <h3>AI/ML Engineer</h3>
+                    <h4>ADP</h4>
+                    <div class="date">Dec 2023 - Aug 2024</div>
+                    <p>• Improved employee churn prediction accuracy by 20% using predictive modeling.<br>
+                    • Deployed NLP models for HR virtual assistant, reducing query resolution time by 30%.<br>
+                    • Built a recommender system for training modules, increasing engagement by 25%.<br>
+                    • Designed real-time ETL pipelines with Apache Spark and Kafka.</p>
+                </div>
+            </div>
+            <div class="experience-item experience-right">
+                <div class="experience-content">
+                    <h3>AI/ML Engineer</h3>
+                    <h4>Taylor Corporation</h4>
+                    <div class="date">Feb 2023 - Nov 2023</div>
+                    <p>• Developed ML solutions for customer intelligence, enhancing marketing strategies.<br>
+                    • Managed large-scale data with Hadoop and PySpark for product insights.<br>
+                    • Built a content-based recommender system with NLP techniques.<br>
+                    • Integrated RAG model into chatbot, improving response accuracy by 30%.</p>
+                </div>
+            </div>
+            <div class="experience-item experience-left">
+                <div class="experience-content">
+                    <h3>Data Scientist</h3>
+                    <h4>Hyundai Motor India Engineering</h4>
+                    <div class="date">Jul 2019 - Dec 2022</div>
+                    <p>• Developed time-series forecasting models, improving vehicle demand prediction by 13%.<br>
+                    • Built automated analytics pipelines, saving 10+ hours/week in KPI reporting.<br>
+                    • Performed RFM segmentation, enhancing service retention campaigns by 5%.<br>
+                    • Conducted statistical audits on ADAS sensor pipelines, improving feature integrity by 30%.</p>
+                </div>
+            </div>
+        </div>
+        <div class="resume-section">
+            <a href="Anirudh_Maganti.pdf" class="resume-btn" download>📄 Download Resume</a>
+            <a href="https://www.linkedin.com/in/magantianirudh/" class="resume-btn" target="_blank">🔗 View LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Machine Learning & AI</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Linear Regression</span>
+                    <span class="skill-tag">Logistic Regression</span>
+                    <span class="skill-tag">Naive Bayes</span>
+                    <span class="skill-tag">Decision Trees</span>
+                    <span class="skill-tag">Random Forest</span>
+                    <span class="skill-tag">SVM</span>
+                    <span class="skill-tag">K-Means</span>
+                    <span class="skill-tag">KNN</span>
+                    <span class="skill-tag">Gradient Boosting</span>
+                    <span class="skill-tag">Ada Boosting</span>
+                    <span class="skill-tag">LDA</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Neural Networks</span>
+                    <span class="skill-tag">CNN</span>
+                    <span class="skill-tag">RNN</span>
+                    <span class="skill-tag">Generative AI</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Data Science & Statistics</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Hypothesis Testing</span>
+                    <span class="skill-tag">ANOVA</span>
+                    <span class="skill-tag">PCA</span>
+                    <span class="skill-tag">Time Series</span>
+                    <span class="skill-tag">Correlation</span>
+                    <span class="skill-tag">Multivariate Analysis</span>
+                    <span class="skill-tag">Bayes Theorem</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Programming & Libraries</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">PL/SQL</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">Spark</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="tech-tag">Seaborn</span>
+                    <span class="tech-tag">NLTK</span>
+                    <span class="tech-tag">Statsmodels</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">SciPy</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Keras</span>
+                    <span class="tech-tag">PyTorch</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Data Platforms & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">SSMS</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Cassandra</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Amazon Redshift</span>
+                    <span class="skill-tag">Snowflake</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">Apache Airflow</span>
+                    <span class="skill-tag">BigQuery</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">Datadog</span>
+                    <span class="skill-tag">DataProc</span>
+                    <span class="skill-tag">Impala</span>
+                    <span class="skill-tag">Gensim</span>
+                    <span class="skill-tag">SpaCy</span>
+                    <span class="skill-tag">Prometheus</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Data Visualization</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">QlikView</span>
+                    <span class="skill-tag">D3.js</span>
+                    <span class="skill-tag">ggplot2</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Operating Systems</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">UNIX</span>
+                    <span class="skill-tag">Shell Scripting</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Windows</span>
+                    <span class="skill-tag">macOS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="contact">
+            <h2>Let's Build Something Amazing Together</h2>
+            <p>I'm actively seeking AI/ML Engineer opportunities. Let's connect and discuss how I can contribute to your team!</p>
+            <div class="contact-links">
+                <a href="https://github.com/magantianirudh" class="contact-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/magantianirudh/" class="contact-link" target="_blank">LinkedIn</a>
+                <a href="mailto:maganti11@gmail.com" class="contact-link">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 20, 25, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 20, 25, 0.95)';
+            }
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fetch public GitHub repositories
+        fetch('https://api.github.com/users/magantianirudh/repos?type=public')
+            .then(response => response.json())
+            .then(data => {
+                const reposContainer = document.getElementById('repos-container');
+                if (data.length === 0) {
+                    reposContainer.innerHTML = '<p>No public repositories found.</p>';
+                    return;
+                }
+                data.forEach(repo => {
+                    if (repo.private) return; // Explicitly skip private repos
+                    const repoCard = document.createElement('div');
+                    repoCard.classList.add('repo-card');
+                    repoCard.innerHTML = `
+                        <h3>${repo.name}</h3>
+                        <p>${repo.description || 'No description available.'}</p>
+                        <div class="language">${repo.language || 'Unknown language'}</div>
+                        <a href="${repo.html_url}" class="project-link" target="_blank">View on GitHub →</a>
+                    `;
+                    reposContainer.appendChild(repoCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching repositories:', error);
+                document.getElementById('repos-container').innerHTML = '<p>Failed to load repositories. Please try again later.</p>';
+            });
+    </script>
+</body>
+</html>
